@@ -1,31 +1,3 @@
-#import socket
-#
-#ip = "192.168.15.43"
-#
-#def sendrequest(sock, request):
-#    sock.send(request.encode())
-#    data = sock.recv(1024)
-#    print("server -> client")
-#    print(data.decode())
-#    
-#requests = [
-#    "DESCRIBE rtsp://" + ip + " RTSP/1.0\r\nCSeq: 1\\r\nAccept: application/sdp\r\n\r\n",
-##    "SETUP rtsp://" + ip + "/trackID=2 RTSP/1.0\r\nCSeq: 2\r\nTransport: RTP/AVP;unicast;client_port=4321-4322\r\n\r\n",
-##    "PLAY rtsp://" + ip + "/trackID=2 RTSP/1.0\r\nCSeq: 3\r\nSession: 865805256\r\nRange: npt=now-\r\n\r\n",
-##    "TEARDOWN rtsp://" + ip + "/trackID=2 RTSP/1.0\r\nCSeq: 3\r\nSession: 275102146\r\n\r\n"
-#]
-#
-#s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#s.connect((ip, 554))
-#
-#for req in requests:
-#    print("client -> server")
-#    print(req)
-#    sendrequest(s, req)
-#
-#s.close()
-
-
 from twisted.internet import reactor
 import rtsp_client
 
