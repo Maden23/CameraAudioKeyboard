@@ -1,5 +1,5 @@
 # CameraAudioKeyboard
-Серверная часть на Python3 и прошивка для Arduino для управления ip-камерой, используя аудио-вход. Подробное описание в Гугл-доке
+Серверная часть на Python3 и прошивка на Arduino для управления ip-камерой, используя аудио-вход. Подробное описание в Гугл-доке
 ## Зависимости Python
 1. Фреймворк [Twisted](https://twistedmatrix.com/trac/) для работы с сетью (TCP и UDP). `pip3 install Twisted`
 2. ONVIF-клиент для Python 3 [python-onvif-zeep](https://github.com/FalkTannhaeuser/python-onvif-zeep) `pip3 install --upgrade onvif_zeep`
