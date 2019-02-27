@@ -39,13 +39,18 @@ class Camera(object):
 
         self.ptz.Stop({'ProfileToken': self.media_profile.token})
     
+
+    def stop(self):
+         self.ptz.Stop({'ProfileToken': self.request.ProfileToken})
+            
     def _perform_move(self, timeout):
+        self.ptz.Stop({'ProfileToken': self.request.ProfileToken})
         # Start continuous move
         self.ptz.ContinuousMove(self.request)
         # Wait a certain time
-        sleep(timeout)
+        # sleep(timeout)
         # Stop continuous move
-        self.ptz.Stop({'ProfileToken': self.request.ProfileToken})
+        # self.ptz.Stop({'ProfileToken': self.request.ProfileToken})
         
     def move_up(self, timeout=0):
         print('Moving UP')

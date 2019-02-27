@@ -84,40 +84,32 @@ void setup() {
   freq1.begin(freq1Pin);
   freq2.begin(freq2Pin);
   Serial.begin(9600);
-//  playDTMF('5', 100000000000000000000000000000000);
-
 }
 
 char key;
 char holdKey;
 unsigned long t_hold;
 void loop() {
-  char list[4] = {'1', '2', '3', '4'};
-  for (key : list)
+  key = keypad.getKey();
+
+  if (key != NO_KEY) 
   {
-    playDTMF(key, 300);
-    delay(500);
+    holdKey = key;
+    Serial.println(key);
   }
-//  key = keypad.getKey();
-//
-//  if (key != NO_KEY) 
-//  {
-//    holdKey = key;
-//    Serial.println(key);
-//  }
-//  
-//  if (keypad.getState() == HOLD)
-//  {
-//    if ((millis() - t_hold) > 100)
-//    {
-//      Serial.println(holdKey);
-//      playDTMF(holdKey, (millis() - t_hold));
-//      t_hold = millis();
-//    }
-//  }
-//  else if (key != NO_KEY)
-//  {
-//      playDTMF(key, 100);
-//  }
+  
+  if (keypad.getState() == HOLD)
+  {
+    if ((millis() - t_hold) > 100)
+    {
+      Serial.println(holdKey);
+      playDTMF(holdKey, (millis() - t_hold));
+      t_hold = millis();
+    }
+  }
+  else if (key != NO_KEY)
+  {
+      playDTMF(key, 100);
+  }
   
 }

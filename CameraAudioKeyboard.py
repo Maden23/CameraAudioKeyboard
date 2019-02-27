@@ -18,7 +18,7 @@ config = {
             }
         }
 
-connector = reactor.connectTCP(config['ip'], config['port'], rtsp_client.RTSPFactory(config, debug=False))
+connector = reactor.connectTCP(config['ip'], config['port'], rtsp_client.RTSPFactory(config, debug=True))
 try:
     reactor.run()
 except KeyboardInterrupt:
